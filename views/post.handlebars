@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h2 class="post-title">{{name}}</h2>
+  <p class="post-desc">{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+  <a href="/edit/{{id}}">
+    <button class="btn btn-primary edit-btn">Edit Post</button>
+  </a>
+  <form class="comment-form" data-id="{{id}}">
+    <p>Add a comment</p>
+    <input class="comment-input" defaultValue="Comment..."></input>
+    <button class="comment-btn" type="submit">Comment</button>
+  </form>
+</div>
+
+ {{#each comments as |comment| }}
+ <div class="comment">
+   <h4 class="commentDesc">Commented by {{comment.user_id}} on {{format_date comment.date_created}}</h4>
+   <p class="commentText">{{comment.comment}}</p>
+ </div>
+ {{/each}}
+<script src="/js/comment.js"></script>
